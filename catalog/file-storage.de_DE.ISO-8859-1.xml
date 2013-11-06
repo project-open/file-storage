@@ -7,17 +7,21 @@
   <msg key="Actions_1">Aktionen</msg>
   <msg key="Add_Dup_As_New_File">Wenn Sie eine Datei mit demselben Namen hochladen, wird dem Dateinamen zur Unterscheidung ein Suffix angehängt. Bitte beachten Sie, dass es sich hierbei nicht um einen Titel für die Datei handelt. Diesen können Sie beliebig wählen. Der Dateiname hingegen muß immer eindeutig sein.</msg>
   <msg key="Add_File">Datei hochladen</msg>
+  <msg key="Add_folder_from_fs">Verzeichnis von Dateisystem hinzufügen</msg>
   <msg key="Add_pretty_name">%pretty_name% hinzufügen</msg>
+  <msg key="Add_Revision">Revision hinzufügen</msg>
   <msg key="Author">Autor</msg>
   <msg key="back_to_folder_view">Zurück zur Verzeichnisübersicht</msg>
   <msg key="back_to_project">Zurück zum Projekt</msg>
   <msg key="bytes">Bytes</msg>
+  <msg key="Categories">Kategorien</msg>
   <msg key="Change_Name">Umbenennen</msg>
   <msg key="Change_upload_limit">Veränderung des Dateilimits</msg>
   <msg key="Choose_Destination_Folder">Wählen Sie ein Zielverzeichnis aus</msg>
   <msg key="Configure_File_Upload_Limit">Konfigurieren des Dateilimits</msg>
   <msg key="Copy">Kopieren</msg>
   <msg key="Copy_File">Datei kopieren</msg>
+  <msg key="Copy_to_folder_title">Nach Verzeichnis kopieren</msg>
   <msg key="Create">Erstellen</msg>
   <msg key="Create_a_new_folder">Neuen Ordner erstellen 
 </msg>
@@ -34,11 +38,16 @@
   <msg key="Delete_Version">Version löschen</msg>
   <msg key="Description">Kommentar:</msg>
   <msg key="Download">Herunterladen</msg>
+  <msg key="Download_ZIP">Als ZIP herunterladen</msg>
+  <msg key="Download_ZIP_Checked_Items">Angewählte Dateien als ZIP herunterladen</msg>
   <msg key="Edit">Bearbeiten</msg>
   <msg key="edit">Umbenennen</msg>
+  <msg key="Edit_File">Datei bearbeiten</msg>
   <msg key="Edit_Folder">Ordner bearbeiten</msg>
   <msg key="Edit_URL">URL bearbeiten</msg>
+  <msg key="File">Datei</msg>
   <msg key="file">Datei</msg>
+  <msg key="file-storage">Dokumente</msg>
   <msg key="file_delete_page_title">&quot;%title%&quot; löschen</msg>
   <msg key="File_deleted">Datei gelöscht</msg>
   <msg key="file_edit_page_title">&quot;%title%&quot; umbenennen</msg>
@@ -47,6 +56,7 @@
   <msg key="file_page_owner_label">Besitzer: %owner%</msg>
   <msg key="Folder">Ordner</msg>
   <msg key="folder">Ordner</msg>
+  <msg key="Folder_Add">Verzeichnis anlegen</msg>
   <msg key="Folder_available_via_WebDAV_at">Dieser Ordner ist via WebDAV verfügbar unter %webdav_url%</msg>
   <msg key="folder_delete_page_title">&quot;%folder_name%&quot; löschen</msg>
   <msg key="Folder_deleted">Verzeichnis gelöscht</msg>
@@ -134,8 +144,10 @@
   <msg key="New_URL_Uploaded">Neue URL ist hochgeladen</msg>
   <msg key="No_such_type">Typ nicht vorhanden</msg>
   <msg key="no_such_URL">URL nicht gefunden</msg>
+  <msg key="No_valid_destination_folders_exist">Zielverzeichnis existiert nicht</msg>
   <msg key="PDF">PDF</msg>
   <msg key="Permissions">Berechtigungen</msg>
+  <msg key="Please_select_at_least_one_item_to_copy.">Bitte mindestens eine Datei auswählen</msg>
   <msg key="pretty_name">Dateisystem</msg>
   <msg key="properties">Eigenschaften</msg>
   <msg key="Rename">Umbenennen</msg>
@@ -147,6 +159,7 @@
   <msg key="Search_Results">Suchergebnisse</msg>
   <msg key="Set_Permissions">Berechtigungen erteilen</msg>
   <msg key="show_all_versions">Alle Versionen anzeigen</msg>
+  <msg key="show_version_title">Show %version.title%</msg>
   <msg key="simple_add_page_title">%pretty_name%  erstellen</msg>
   <msg key="Size">Größe</msg>
   <msg key="Size_bytes">Größe (Bytes)</msg>
@@ -158,7 +171,9 @@
   <msg key="Update">Hochladen</msg>
   <msg key="Upload">Hochladen</msg>
   <msg key="Upload_a_file">Neue Datei hochladen</msg>
+  <msg key="Upload_a_folder">Verzeichnis hochladen</msg>
   <msg key="Upload_a_new_version">Neue Version hochladen</msg>
+  <msg key="Upload_folder_help">Verzeichnis aus dem Dateisystem hochladen</msg>
   <msg key="Upload_Limit">Größenbeschränkung (Bytes)</msg>
   <msg key="Upload_limit_error">Die Dateigrößenbeschränkung darf nicht höher liegen als</msg>
   <msg key="Upload_limit_error_2">Bytes. Bitte erhöhen Sie die Größenbeschränkung in der Tcl Konfigurations Datei Ihres AOLserver.</msg>
@@ -176,6 +191,7 @@
   <msg key="Version_filename_1">Dateiname der Version:</msg>
   <msg key="Version_Notes">Kommentar zur Version</msg>
   <msg key="Version_Notes_1">Kommentar zur Version:</msg>
+  <msg key="view_contents">Inhalt anzeigen</msg>
   <msg key="view_details">Details anzeigen</msg>
   <msg key="Yes_Delete">Ja, löschen.</msg>
   <msg key="Yes_Delete_It">Ja, löschen</msg>
