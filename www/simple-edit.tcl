@@ -5,11 +5,11 @@ ad_page_contract {
     @creation-date 01 April 2002
     @cvs-id $Id$
 } {
-    object_id:notnull
+    object_id:naturalnum,notnull
 }
 
 # check for write permission on the item
-ad_require_permission $object_id write
+permission::require_permission -object_id $object_id -privilege write
 
 # Message lookup uses variable pretty_name
 
@@ -38,7 +38,7 @@ ad_form -extend -edit_request {
 								       -container_object_id $package_id \
 								       -element_name category_id]
     }
-    ad_returnredirect "?[export_vars folder_id]"
+    ad_returnredirect [export_vars -base . folder_id]
 }
 
 set pretty_name "$name"

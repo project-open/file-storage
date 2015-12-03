@@ -5,11 +5,11 @@ ad_page_contract {
     @creation-date 7 Nov 2000
     @cvs-id $Id$
 } {
-    file_id:integer,notnull
-    {show_all_versions_p "f"}
+    file_id:naturalnum,notnull
+    {show_all_versions_p:boolean "f"}
 } -validate {
     valid_file -requires {file_id} {
-	if ![fs_file_p $file_id] {
+	if {![fs_file_p $file_id]} {
 	    ad_complain "[_ file-storage.lt_The_specified_file_is]"
 	}
     }
@@ -32,7 +32,7 @@ permission::require_permission -object_id $file_id -privilege read
 set user_id [ad_conn user_id]
 set context [fs_context_bar_list $file_id]
 
-set show_administer_permissions_link_p [ad_parameter "ShowAdministerPermissionsLinkP"]
+set show_administer_permissions_link_p [parameter::get -parameter "ShowAdministerPermissionsLinkP"]
 set root_folder_id [fs::get_root_folder]
 db_1row file_info ""
 
@@ -51,7 +51,7 @@ if { $show_all_versions_p } {
 set not_show_all_versions_p [expr {!$show_all_versions_p}]
 set show_versions_url [export_vars -base file {file_id {show_all_versions_p $not_show_all_versions_p}}]
 
-set return_url [ad_conn url]?[export_vars file_id]
+set return_url [export_vars -base [ad_conn url] file_id]
 
 set categories_p [parameter::get -parameter CategoriesP -package_id [ad_conn package_id] -default 0]
 if { $categories_p } {
@@ -60,14 +60,18 @@ if { $categories_p } {
     set rename_name [_ file-storage.Rename_File]
 }
 
-set actions [list "[_ file-storage.Upload_Revision]" file-add?[export_vars [list file_id return_url]] "Upload a new version of this file" \
-                 "$rename_name" file-edit?[export_vars file_id] "Rename file" \
-                 "[_ file-storage.Copy_File]" [export_vars -base copy {{object_id $file_id} return_url}] "Copy file" \
-                 "[_ file-storage.Move_File]" [export_vars -base move {{object_id $file_id} {return_url $folder_view_url}}] "Move file" \
-                 "[_ file-storage.Delete_File]" [export_vars -base delete {{object_id $file_id} {return_url $folder_view_url}}] "Delete file"]
+set actions [list \
+		 [_ file-storage.Upload_Revision] [export_vars -base file-add {file_id return_url}] "Upload a new version of this file" \
+                 $rename_name                 [export_vars -base file-edit file_id] "Rename file" \
+                 [_ file-storage.Copy_File]   [export_vars -base copy {{object_id $file_id} return_url}] "Copy file" \
+                 [_ file-storage.Move_File]   [export_vars -base move {{object_id $file_id} {return_url $folder_view_url}}] "Move file" \
+                 [_ file-storage.Delete_File] [export_vars -base delete {{object_id $file_id} {return_url $folder_view_url}}] "Delete file"]
 
-if {[string equal $delete_p "t"]} {
-    lappend actions [_ file-storage.Set_Permissions] [export_vars -base permissions {{object_id $file_id}}] [_ file-storage.lt_Modify_permissions_on]
+if {$delete_p == "t"} {
+    lappend actions \
+	[_ file-storage.Set_Permissions] \
+	[export_vars -base permissions {{object_id $file_id}}] \
+	[_ file-storage.lt_Modify_permissions_on]
 }
 
 template::list::create \
@@ -110,22 +114,22 @@ db_multirow -unclobber -extend { author_link last_modified_pretty content_size_p
     if {$content_size < 1024} {
 	set content_size_pretty "[lc_numeric $content_size] [_ file-storage.bytes]"
     } else {
-	set content_size_pretty "[lc_numeric [expr $content_size / 1024 ]] [_ file-storage.kb]"
+	set content_size_pretty "[lc_numeric [expr {$content_size / 1024 }]] [_ file-storage.kb]"
     }
-    if {[string equal $title ""]} {
+    if {$title eq ""} {
 	set title "[_ file-storage.untitled]"
     }
-    if {![string equal $version_id $live_revision]} {
+    if {$version_id ne $live_revision } {
         set version_url [export_vars -base "download/$title" {version_id}]
     } else {
         set version_url [export_vars -base "download/$title" {file_id}]
     }
     set version_delete [_ file-storage.Delete_Version]
-    set version_delete_url "version-delete?[export_vars version_id]"
+    set version_delete_url [export_vars -base version-delete version_id]
     set author_link [acs_community_member_link -user_id $author_id -label $author]
 }
 
-if { [apm_package_installed_p "general-comments"] && [ad_parameter "GeneralCommentsP" -package_id [ad_conn package_id]] } {
+if { [apm_package_installed_p "general-comments"] && [parameter::get -parameter "GeneralCommentsP" -package_id [ad_conn package_id]] } {
     set gc_link [general_comments_create_link $file_id $return_url]
     set gc_comments [general_comments_get_comments $file_id $return_url]
 } else {

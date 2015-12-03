@@ -5,11 +5,11 @@ ad_page_contract {
     @creation-date 10 November 2000
     @cvs-id $Id$
 } {
-    version_id:integer,notnull
-    {confirmed_p "f"}
+    version_id:naturalnum,notnull
+    {confirmed_p:boolean "f"}
 } -validate {
     valid_version -requires {version_id} {
-	if ![fs_version_p $version_id] {
+	if {![fs_version_p $version_id]} {
 	    ad_complain [_ file-storage.lt_version_not_valid]
 	}
     }
@@ -22,7 +22,7 @@ ad_page_contract {
 
 # check for delete permission on the version
 
-ad_require_permission $version_id delete
+permission::require_permission -object_id $version_id -privilege delete
 
 db_1row item_select "
 select item_id
@@ -38,7 +38,7 @@ db_1row version_name "
 set context [fs_context_bar_list -final [_ file-storage.Delete_Version] $item_id]
 
 set delete_message [_ file-storage.lt_Are_you_sure_that_you]
-ad_form -export version_id -cancel_url "file?[export_vars {{file_id $item_id}}]" -form {
+ad_form -export version_id -cancel_url [export_vars -base file {{file_id $item_id}}] -form {
     {delete_message:text(inform) {label $delete_message}}
 } -on_submit {
 
