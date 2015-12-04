@@ -80,12 +80,7 @@ element create n_past_days_form folder_id \
     -value $folder_id
 
 
-set notification_chunk [notification::display::request_widget \
-    -type fs_fs_notif \
-    -object_id $folder_id \
-    -pretty_name $folder_name \
-    -url [ad_conn url]?folder_id=$folder_id \
-]
+set folder_url [export_vars -base [ad_conn url] {folder_id}]
 
 if {[form is_valid n_past_days_form]} {
     form get_values n_past_days_form n_past_days folder_id
@@ -146,3 +141,9 @@ set allow_bulk_actions 1
 
 
 ad_return_template
+
+# Local variables:
+#    mode: tcl
+#    tcl-indent-level: 4
+#    indent-tabs-mode: nil
+# End:
