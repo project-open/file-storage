@@ -208,9 +208,10 @@ ad_proc -private fs::before_unmount {
     Create root folder for package instance
     via Tcl callback.
 } {
-    set folder_id [fs::get_root_folder -package_id $package_id]
-
-    oacs_dav::unregister_folder $folder_id $node_id
+    catch {
+        set folder_id [fs::get_root_folder -package_id $package_id]
+        oacs_dav::unregister_folder $folder_id $node_id
+    } err_msg
 }
 
 ad_proc -public fs::new_root_folder {
