@@ -26,7 +26,11 @@ CREATE OR REPLACE FUNCTION inline_0(
 DECLARE
 	rec_root_folder		record;
         template_id             integer;
+	v_count			integer;
 BEGIN
+    -- Skip if already dropped
+    select count(*) into v_count from user_tab_columns where lower(table_name) = 'fs_root_folders';
+    if v_count = 0 then return 0; end if;
 
     for rec_root_folder in 
         select package_id
@@ -46,16 +50,15 @@ BEGIN
 
 END;
 $$ LANGUAGE plpgsql;
-
 select inline_0();
 drop function inline_0();
 
 \i file-storage-views-drop.sql;
-drop trigger fs_package_items_delete_trig on fs_root_folders;
-drop function fs_package_items_delete_trig();
+drop trigger if exists fs_package_items_delete_trig on fs_root_folders;
+drop function if exists fs_package_items_delete_trig();
 
-drop trigger fs_root_folder_delete_trig on fs_root_folders;
-drop function fs_root_folder_delete_trig();
+drop trigger if exists fs_root_folder_delete_trig on fs_root_folders;
+drop function if exists fs_root_folder_delete_trig();
 
 
 select content_type__drop_type (
@@ -69,8 +72,8 @@ select content_type__drop_type (
 
 \i file-storage-notifications-drop.sql
 
-drop table fs_root_folders cascade;
+drop table if exists fs_root_folders cascade;
 
-drop table fs_rss_subscrs;
+drop table if exists fs_rss_subscrs;
 
 select drop_package('file_storage');

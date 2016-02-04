@@ -6,7 +6,7 @@
 -- @version $Id$
 --
 
-drop view fs_objects;
-drop view fs_files;
-drop view fs_folders;
-drop view fs_urls_full;
+drop view if exists fs_objects;
+drop view if exists fs_files;
+drop view if exists fs_folders;
+drop view if exists fs_urls_full;

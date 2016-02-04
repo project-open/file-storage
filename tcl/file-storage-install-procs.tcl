@@ -52,7 +52,9 @@ ad_proc -private fs::install::before_uninstantiate {
     {-package_id:required}
 } {
 } {
-    fs::delete_folder -folder_id [fs::get_root_folder -package_id $package_id] -no_notifications
+    catch {
+        fs::delete_folder -folder_id [fs::get_root_folder -package_id $package_id] -no_notifications
+    } err_msg
 }
 
 ad_proc -private fs::install::register_implementation {
