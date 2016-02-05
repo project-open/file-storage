@@ -6,6 +6,7 @@
 -- @cvs-id $Id$
 --
 
+drop view if exists fs_urls_full;
 create view fs_urls_full
 as
     select cr_extlinks.extlink_id as url_id,
@@ -20,7 +21,7 @@ as
     where cr_extlinks.extlink_id = cr_items.item_id
     and cr_items.item_id = acs_objects.object_id;
 
-create view fs_folders
+create or replace view fs_folders
 as
     select cr_folders.folder_id,
            cr_folders.label as name,
@@ -37,7 +38,7 @@ as
     where cr_folders.folder_id = ci.item_id
     and cr_folders.folder_id = acs_objects.object_id;
 
-create view fs_files
+create or replace view fs_files
 as
     select cr_revisions.item_id as file_id,
            cr_revisions.revision_id as live_revision,
@@ -56,7 +57,7 @@ as
     and cr_items.content_type = 'file_storage_object'
     and cr_revisions.revision_id = acs_objects.object_id;
 
-create view fs_objects
+create or replace view fs_objects
 as
     select cr_items.item_id as object_id,
       cr_items.live_revision,
