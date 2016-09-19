@@ -1,7 +1,5 @@
 
-
-
--- samity check for existence of fs_root_folders 
+-- sanity check for existence of fs_root_folders 
 CREATE OR REPLACE FUNCTION inline_0 ()
 RETURNS INTEGER AS $BODY$
 declare
@@ -46,8 +44,8 @@ CREATE OR REPLACE FUNCTION file_storage__new_folder(
 )
 RETURNS integer AS $$
 DECLARE
-        v_folder_id                   cr_folders.folder_id%TYPE;
-        v_package_id                  acs_objects.package_id%TYPE;
+        v_folder_id                   integer;
+        v_package_id                  integer;
 BEGIN
         v_package_id := file_storage__get_package_id(new_folder__parent_id);
 
@@ -111,7 +109,7 @@ CREATE OR REPLACE FUNCTION file_storage__new_root_folder(
 )
 RETURNS integer AS $$
 DECLARE
-        v_folder_id                         fs_root_folders.folder_id%TYPE;
+        v_folder_id                         integer;
 BEGIN
         v_folder_id := content_folder__new (
             new_root_folder__url, -- name
