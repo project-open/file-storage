@@ -1,13 +1,38 @@
 
 
-delete from cr_folder_type_map
-       where content_type not in ( 'file_storage_object', 'content_folder', 'content_extlink')
-       and folder_id in (
-       select o2.object_id as folder_id  from acs_objects o1, acs_objects o2
-       where o1.object_id in (select folder_id from fs_root_folders)
-                and o2.tree_sortkey between o1.tree_sortkey
-         and tree_right(o1.tree_sortkey)
-         and o2.object_type = 'content_folder');
+
+-- samity check for existence of fs_root_folders 
+CREATE OR REPLACE FUNCTION inline_0 ()
+RETURNS INTEGER AS $BODY$
+declare
+        v_count                 integer;
+begin
+
+	select count(*) into v_count from pg_tables where tablename = 'fs_root_folders';
+
+        IF      v_count > 0
+        THEN
+		delete from cr_folder_type_map
+      		where 	content_type not in ( 'file_storage_object', 'content_folder', 'content_extlink')
+		       	and folder_id in (
+       				select 
+					o2.object_id as folder_id  
+				from 
+					acs_objects o1, 
+					acs_objects o2 
+				where 
+					o1.object_id in (select folder_id from fs_root_folders)
+				        and o2.tree_sortkey between o1.tree_sortkey
+         				and tree_right(o1.tree_sortkey)
+         				and o2.object_type = 'content_folder'
+			);
+                return 0;
+        END IF;
+        return 1;
+
+end;$BODY$ LANGUAGE 'plpgsql';
+SELECT inline_0 ();
+DROP FUNCTION inline_0 ();
 
 
 --- from file-storage-package-create.sql
