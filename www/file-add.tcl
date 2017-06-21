@@ -119,7 +119,7 @@ ad_form -extend -form {
     {description:text(textarea),optional {label \#file-storage.Description\#} {html "rows 5 cols 35"}}
 }
 
-if [catch {set binary [exec $unpack_binary]} errormsg] {
+if [catch {set binary [im_exec $unpack_binary]} errormsg] {
       set unpack_bin_installed 0
 } else {
         set unpack_bin_installed 1
@@ -155,7 +155,7 @@ ad_form -extend -form {} -select_query_name {get_file} -new_data {
 	file mkdir $path
 	
 	
-	catch { exec $unpack_binary -jd $path ${upload_file.tmpfile} } errmsg
+	catch { im_exec $unpack_binary -jd $path ${upload_file.tmpfile} } errmsg
 	
 	# More flexible parameter design could be:
 	# zip {unzip -jd {out_path} {in_file}} tar {tar xf {in_file} {out_path}} tgz {tar xzf {in_file} {out_path}} 
