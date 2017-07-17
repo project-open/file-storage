@@ -74,7 +74,6 @@
   <msg key="last_week">Letzte Woche</msg>
   <msg key="link">Link</msg>
   <msg key="lt_Add_a_link_to_a_web_p">Einen Link auf eine Internetseite in diesem Ordner anlegen</msg>
-  <msg key="lt_administer_permission">Admin Zugriffsberechtigungen</msg>
   <msg key="lt_All_Versions_of_title">Alle Versionen von &#34;%title%&#34;</msg>
   <msg key="lt_Are_you_sure_that_you">Wollen Sie die Version &#34;%version_name%&#34; von &#34;%title%&#34; unwiderruflich löschen?</msg>
   <msg key="lt_bad_folder_id_folder_">Fehlende Ordner-ID</msg>
