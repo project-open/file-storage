@@ -10,12 +10,14 @@
   <msg key="Author">Auteur</msg>
   <msg key="back_to_project">Terug naar project</msg>
   <msg key="bytes">bytes</msg>
+  <msg key="Categories">Categorieën</msg>
   <msg key="Change_Name">Naam veranderen</msg>
   <msg key="Change_upload_limit">Limiet bestandsaanbod veranderen</msg>
   <msg key="Choose_Destination_Folder">Een doelmap kiezen</msg>
   <msg key="Configure_File_Upload_Limit">Limiet bestandsaanbod instellen</msg>
   <msg key="Copy">Kopiëren</msg>
   <msg key="Copy_File">Bestand kopiëren</msg>
+  <msg key="Copy_to_folder_title">Kopieer naar map</msg>
   <msg key="Create">Aanmaken</msg>
   <msg key="Create_a_new_folder">Nieuwe map aanmaken</msg>
   <msg key="Create_a_URL">URL aanmaken</msg>
@@ -31,10 +33,13 @@
   <msg key="Delete_Version">Versie verwijderen</msg>
   <msg key="Description">Beschrijving:</msg>
   <msg key="Download">Download</msg>
+  <msg key="Download_ZIP">Download als een ZIP bestand</msg>
   <msg key="Edit">Bewerken</msg>
   <msg key="edit">Bewerken</msg>
+  <msg key="Edit_File">Edit Bestand</msg>
   <msg key="Edit_Folder">Map bewerken</msg>
   <msg key="Edit_URL">URL bewerken</msg>
+  <msg key="File">Bestand</msg>
   <msg key="file">bestand</msg>
   <msg key="file_delete_page_title">%title% verwijderen</msg>
   <msg key="File_deleted">Bestand is verwijderd</msg>
@@ -44,12 +49,14 @@
   <msg key="file_page_owner_label">Eigenaar: %owner% </msg>
   <msg key="Folder">Map</msg>
   <msg key="folder">map</msg>
+  <msg key="Folder_Add">Map toevoegen</msg>
   <msg key="Folder_available_via_WebDAV_at">Deze map is beschikbaar via WebDAV op %webdav_url%</msg>
   <msg key="folder_delete_page_title">%folder_name% verwijderen</msg>
   <msg key="Folder_deleted">Map is verwijderd</msg>
   <msg key="Folder_ID">Map ID</msg>
   <msg key="Folder_Name">Mapnaam:</msg>
   <msg key="folder_type_pretty_name">map</msg>
+  <msg key="Important">Belangrijk!</msg>
   <msg key="index_page_navigate_up_folder">Naar hoger niveau %up_name%</msg>
   <msg key="item">bestand</msg>
   <msg key="items">bestanden</msg>
@@ -132,6 +139,7 @@ Gebruikt de knop &#34;Terug&#34; om een nieuwe naam te kiezen of bekijk de &lt;a
   <msg key="New_URL_Uploaded">Nieuwe URL aangeboden</msg>
   <msg key="No_such_type">Een dergelijk type bestaat niet</msg>
   <msg key="no_such_URL">een dergelijke URL bestaat niet</msg>
+  <msg key="Not_Allowed">Niet Toegestaan</msg>
   <msg key="PDF">PDF</msg>
   <msg key="Permissions">Rechten</msg>
   <msg key="properties">eigenschappen</msg>
@@ -144,6 +152,7 @@ Gebruikt de knop &#34;Terug&#34; om een nieuwe naam te kiezen of bekijk de &lt;a
   <msg key="Search_Results">Zoekresultaten</msg>
   <msg key="Set_Permissions">Rechten instellen</msg>
   <msg key="show_all_versions">toon alle versies</msg>
+  <msg key="show_version_title">Toon %version.title%</msg>
   <msg key="simple_add_page_title">Aanmaken %pretty_name%</msg>
   <msg key="Size">Inhoud</msg>
   <msg key="Size_bytes">Grootte (bytes)</msg>
@@ -172,6 +181,7 @@ Gebruikt de knop &#34;Terug&#34; om een nieuwe naam te kiezen of bekijk de &lt;a
   <msg key="Version_filename_1">Bestandsnaam:</msg>
   <msg key="Version_Notes">Versie toelichting</msg>
   <msg key="Version_Notes_1">Versie toelichting:</msg>
+  <msg key="view_contents">Bekijk inhoud</msg>
   <msg key="view_details">bekijk details</msg>
   <msg key="Yes_Delete">Ja, verwijderen</msg>
   <msg key="Yes_Delete_It">Ja, verwijderen</msg>
