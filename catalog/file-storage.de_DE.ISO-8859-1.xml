@@ -24,10 +24,10 @@
   <msg key="Copy_File">Datei kopieren</msg>
   <msg key="Copy_to_folder_title">Nach Ordner kopieren</msg>
   <msg key="Create">Erstellen</msg>
-  <msg key="Create_a_new_folder">Neuer Ordner
+  <msg key="Create_a_new_folder">Neuen Ordner erstellen 
 </msg>
-  <msg key="Create_a_URL">Neue URL</msg>
-  <msg key="Create_New_Folder">Neuer Ordner</msg>
+  <msg key="Create_a_URL">Neue URL hinzufügen</msg>
+  <msg key="Create_New_Folder">Neuen Ordner erstellen</msg>
   <msg key="day">Tag</msg>
   <msg key="days_as_new">Tagen geändert wurden, als neu anzeigen</msg>
   <msg key="Delete">Löschen</msg>
@@ -37,7 +37,7 @@
   <msg key="delete_folder_and_children">Damit werden &#34;%folder_name%&#34; und %child_count% Dateien und Ordner gelöscht. Möchten Sie den Vorgang fortsetzen?</msg>
   <msg key="Delete_this_folder">Diesen Ordner löschen</msg>
   <msg key="Delete_Version">Version löschen</msg>
-  <msg key="Description">Beschreibung:</msg>
+  <msg key="Description">Kommentar:</msg>
   <msg key="Download">Herunterladen</msg>
   <msg key="Download_ZIP">Als ZIP herunterladen</msg>
   <msg key="Download_ZIP_Checked_Items">Angewählte Elemente als ZIP herunterladen</msg>
