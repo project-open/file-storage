@@ -1116,6 +1116,8 @@ ad_proc fs::delete_file {
 	}
     }
 
+    db_dml del_perms "delete from acs_permissions where object_id = :item_id"
+
     db_exec_plsql delete_file ""
 
     fs::do_notifications -folder_id $parent_id -filename $version_name -item_id $item_id -action "delete_file"
