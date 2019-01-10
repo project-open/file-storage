@@ -1142,6 +1142,9 @@ ad_proc fs::delete_folder {
 	set parent_id [fs::get_parent -item_id $folder_id]
     }
 
+    # delete permissions
+    db_dml del_perms "delete from acs_permissions where object_id = :folder_id"
+
     set version_name [get_object_name -object_id $folder_id]
     db_exec_plsql delete_folder ""
     
