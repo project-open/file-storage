@@ -1064,7 +1064,11 @@ ad_proc fs::add_version {
 	
     content::item::set_live_revision -revision_id $revision_id
 
-    db_exec_plsql update_last_modified ""
+    # Fraber 2019-03-27: Why changed?
+    # db_exec_plsql update_last_modified ""
+    db_string update1 "select acs_object__update_last_modified(:parent_id, :creation_user, :creation_ip)"
+    db_string update2 "select acs_object__update_last_modified(:item_id, :creation_user, :creation_ip)"
+
 
     if {[string is false $suppress_notify_p]} {
 	fs::do_notifications -folder_id $parent_id -filename $title -item_id $revision_id -action "new_version" -package_id $package_id
@@ -1094,9 +1098,7 @@ ad_proc fs::delete_file {
 } {
     Deletes a file and all its revisions
 } {
-
     set version_name [get_object_name -object_id $item_id]
-
     if {$parent_id eq ""} {
 	set parent_id [fs::get_parent -item_id $item_id]
     }
@@ -1116,8 +1118,16 @@ ad_proc fs::delete_file {
 	}
     }
 
+    # 2019-01-22: Delete permissions and file versions
     db_dml del_perms "delete from acs_permissions where object_id = :item_id"
-
+    db_dml del_versions "delete from im_file_versions where version_id in (
+		select	cr.revision_id
+		from	cr_revisions cr,
+			cr_items ci
+		where	ci.item_id = :item_id and
+			cr.item_id = ci.item_id
+    )"
+    db_dml del_file "delete from im_files where file_id = :item_id"
     db_exec_plsql delete_file ""
 
     fs::do_notifications -folder_id $parent_id -filename $version_name -item_id $item_id -action "delete_file"
