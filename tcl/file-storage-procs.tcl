@@ -1069,7 +1069,6 @@ ad_proc fs::add_version {
     db_string update1 "select acs_object__update_last_modified(:parent_id, :creation_user, :creation_ip)"
     db_string update2 "select acs_object__update_last_modified(:item_id, :creation_user, :creation_ip)"
 
-
     if {[string is false $suppress_notify_p]} {
 	fs::do_notifications -folder_id $parent_id -filename $title -item_id $revision_id -action "new_version" -package_id $package_id
     }
