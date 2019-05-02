@@ -258,10 +258,8 @@
   <fullquery name="fs::add_version.update_last_modified">
     <querytext>
       begin
-      perform acs_object__update_last_modified
-      (:parent_id,:creation_user,:creation_ip);
-      perform
-      acs_object__update_last_modified(:item_id,:creation_user,:creation_ip);
+      perform acs_object__update_last_modified (:parent_id,:creation_user,:creation_ip);
+      perform acs_object__update_last_modified (:item_id,:creation_user,:creation_ip);
       return null;
       end;
     </querytext>
