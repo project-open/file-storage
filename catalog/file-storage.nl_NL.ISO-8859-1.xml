@@ -5,9 +5,14 @@
   <msg key="Action">Actie</msg>
   <msg key="Actions">Acties:</msg>
   <msg key="Actions_1">Acties</msg>
+  <msg key="Add_Dup_As_New_File">Als je een bestand upload met eenzelfde naam als een al bestaand bestand in deze map, wordt de bestandsnaam aangevuld met een toevoeging (bv. &amp;quot;mydoc.doc&amp;quot; -&amp;gt; &amp;quot;mydoc-1.doc&amp;quot;) zodat er een nieuw bestand wordt gemaakt. &lt;br&gt;&lt;br&gt;&lt;em&gt;Let op: dit is NIET de titel van het bestand, die kunt u benoemen zoals je wil.&lt;/em&gt;</msg>
+  <msg key="Add_Dup_As_Revision">Als u een bestand met dezelfde naam als al in de map aanwezig upload, wordt deze als nieuwe revisie aan het bestaande bestand toegevoegd.</msg>
   <msg key="Add_File">Bestand toevoegen</msg>
+  <msg key="Add_folder_from_fs">Voeg map van bestandssysteem toe</msg>
   <msg key="Add_pretty_name">%pretty_name% toevoegen</msg>
+  <msg key="Add_Revision">Revisie toevoegen</msg>
   <msg key="Author">Auteur</msg>
+  <msg key="back_to_folder_view">Terug naar map overzicht</msg>
   <msg key="back_to_project">Terug naar project</msg>
   <msg key="bytes">bytes</msg>
   <msg key="Categories">Categorieën</msg>
@@ -34,6 +39,7 @@
   <msg key="Description">Beschrijving:</msg>
   <msg key="Download">Download</msg>
   <msg key="Download_ZIP">Download als een ZIP bestand</msg>
+  <msg key="Download_ZIP_Checked_Items">Download de geselecteerde items als ZIP bestand</msg>
   <msg key="Edit">Bewerken</msg>
   <msg key="edit">Bewerken</msg>
   <msg key="Edit_File">Edit Bestand</msg>
@@ -41,6 +47,7 @@
   <msg key="Edit_URL">URL bewerken</msg>
   <msg key="File">Bestand</msg>
   <msg key="file">bestand</msg>
+  <msg key="file-storage">Documenten</msg>
   <msg key="file_delete_page_title">%title% verwijderen</msg>
   <msg key="File_deleted">Bestand is verwijderd</msg>
   <msg key="file_edit_page_title">%title% hernoemen</msg>
@@ -139,9 +146,12 @@ Gebruikt de knop &#34;Terug&#34; om een nieuwe naam te kiezen of bekijk de &lt;a
   <msg key="New_URL_Uploaded">Nieuwe URL aangeboden</msg>
   <msg key="No_such_type">Een dergelijk type bestaat niet</msg>
   <msg key="no_such_URL">een dergelijke URL bestaat niet</msg>
+  <msg key="No_valid_destination_folders_exist">Er bestaat geen geldige bestemmingsmap</msg>
   <msg key="Not_Allowed">Niet Toegestaan</msg>
   <msg key="PDF">PDF</msg>
   <msg key="Permissions">Rechten</msg>
+  <msg key="Please_select_at_least_one_item_to_copy.">Selecteer minstens een item om te kopiëren.</msg>
+  <msg key="pretty_name">Opslag</msg>
   <msg key="properties">eigenschappen</msg>
   <msg key="Rename">Hernoemen</msg>
   <msg key="Rename_File">Bestand hernoemen</msg>
@@ -164,7 +174,9 @@ Gebruikt de knop &#34;Terug&#34; om een nieuwe naam te kiezen of bekijk de &lt;a
   <msg key="Update">Bijwerken</msg>
   <msg key="Upload">Aanbieden</msg>
   <msg key="Upload_a_file">Bestand aanbieden</msg>
+  <msg key="Upload_a_folder">Upload een map</msg>
   <msg key="Upload_a_new_version">Nieuwe versie aanbieden</msg>
+  <msg key="Upload_folder_help">Upload een map van het bestandssysteem</msg>
   <msg key="Upload_Limit">Aanbod limiet (bytes)</msg>
   <msg key="Upload_limit_error">Aanbod limiet mag niet meer zijn dan</msg>
   <msg key="Upload_limit_error_2">bytes. Verhoog de aanbod limiet in Aolserver&#39;s TCL configuratie-bestand</msg>
@@ -174,6 +186,7 @@ Gebruikt de knop &#34;Terug&#34; om een nieuwe naam te kiezen of bekijk de &lt;a
   <msg key="Uploaded_by_ownern">Aangeboden door: %owner%\n </msg>
   <msg key="URL">URL:</msg>
   <msg key="URL_deleted">URL verwijderd</msg>
+  <msg key="Use_this_form_to_upload_a_ZIP">Gebruik dit formulier om een ZIP bestand te uploaden (de inhoud wordt uitgepakt in een map met dezelfde naam als hierboven).</msg>
   <msg key="version_add_page_title">Niewe versie van %title% aanbieden</msg>
   <msg key="version_delete_page_title">%version_name% verwijderen </msg>
   <msg key="Version_filename">Bestandsnaam</msg>
