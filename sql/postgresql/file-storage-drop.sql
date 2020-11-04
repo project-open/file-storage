@@ -26,9 +26,9 @@ CREATE OR REPLACE FUNCTION inline_0(
 DECLARE
 	rec_root_folder		record;
         template_id             integer;
-	v_count			integer;
+	v_count                 integer;
 BEGIN
-    -- Skip if already dropped
+    -- Skip if already dropped                                                                                                                                                            
     select count(*) into v_count from user_tab_columns where lower(table_name) = 'fs_root_folders';
     if v_count = 0 then return 0; end if;
 
@@ -50,6 +50,7 @@ BEGIN
 
 END;
 $$ LANGUAGE plpgsql;
+
 select inline_0();
 drop function inline_0();
 

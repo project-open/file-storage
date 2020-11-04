@@ -29,8 +29,8 @@ browsers (potentially SSL-encrypted)</li><li>Grab files that are served bit-for-
 any risk that a cracker-uploaded file will be executed as code</li><li>Retrieve historical versions of a file</li>
 </ul>
 <p>We want something that is relatively secure, and can be extended
-and maintained by any ArsDigita programmer, <i>i.e.</i>, something
-that requires only AOLserver Tcl and Oracle skills.</p>
+and maintained by any ArsDigita programmer, <em>i.e.</em>,
+something that requires only AOLserver Tcl and Oracle skills.</p>
 <p>In ACS 4, File Storage can be implemented on top of the Content
 Repository. Thus, there is no data model associated with File
 Storage. It is only a UI and a small set of Tcl and PL/SQL library
@@ -50,7 +50,7 @@ directory, you are running some big security risks. FTP is insecure
 and passwords are transmitted in the clear. A cracker might sniff a
 password, upload Perl scripts or ADP pages, then grab those URLs
 from a Web browser. The cracker is now executing arbitrary code on
-your server with all the privileges that you've given your Web
+your server with all the privileges that you&#39;ve given your Web
 server.</p>
 <p>The File Storage application is not a web-based file system, and
 can not be fairly compared against such systems. The role of File
@@ -64,10 +64,10 @@ of a given type, or searching through specified file types).</p>
 permissions. (However they did have a concept of private group
 trees.) The reasons for this were to simplify the code and the user
 experience. However, this system actually caused some confusion
-(<i>e.g.</i>, explicitly granting permission to an outsider on a
-file in a group's private tree did not actually give that person
-access to the file) and was not as flexible as people desired. The
-ACS 4 version includes folder read, write and delete
+(<em>e.g.</em>, explicitly granting permission to an outsider on a
+file in a group&#39;s private tree did not actually give that
+person access to the file) and was not as flexible as people
+desired. The ACS 4 version includes folder read, write and delete
 permissions.</p>
 <p>Note that this can create some funny results. For example, a
 user might have write permission on a folder, but not on some of
@@ -76,8 +76,8 @@ moving and copying files to look odd or misleading.</p>
 <h4>Deletion of Files</h4>
 <p>Previous versions of File Storage allowed only administrators to
 actually delete content (although users could mark content as
-"deleted" using a toggle in the data model, deleted_p.) However,
-the proper use of versioning should allow users to avoid
+"deleted" using a toggle in the data model, deleted_p.)
+However, the proper use of versioning should allow users to avoid
 accidentally losing their files. So, in this version, if a person
 asks to delete a version or a file, we really delete it.</p>
 <h4>Use of Content Repository</h4>
@@ -85,18 +85,19 @@ asks to delete a version or a file, we really delete it.</p>
 of useful functionality for File Storage with no additional
 development costs. However, it may also constrain the system
 somewhat.</p>
-<p>The Content Repository's datamodel has been extended to include
-an attibute to store the filesize. Unfortunately, the Content
-Repository does not automatically do this, since files may be
-stored on the filesystem (the Content Repository thus serving as a
-catalog to keep track of file location and some metadata, but not
+<p>The Content Repository&#39;s datamodel has been extended to
+include an attibute to store the filesize. Unfortunately, the
+Content Repository does not automatically do this, since files may
+be stored on the filesystem (the Content Repository thus serving as
+a catalog to keep track of file location and some metadata, but not
 the filesize). The filesize is therefore calculated whenever a file
 is inserted in the Content Repository by the external program (the
-webserver's database driver) doing the insertion into the
+webserver&#39;s database driver) doing the insertion into the
 database..</p>
-<p>The content_revision is subtyped as a "file-storage-item" to
-allow site-wide search to distinguish file storage objects in its
-search results. This feature is not implemented yet, however.</p>
+<p>The content_revision is subtyped as a
+"file-storage-item" to allow site-wide search to
+distinguish file storage objects in its search results. This
+feature is not implemented yet, however.</p>
 <h4>Permissions Design</h4>
 <p>Permissions were chosen to make as much use as possible of the
 predefined privileges while keeping the connotative value of each
@@ -134,31 +135,34 @@ multiple Content Repository PL/SQP functions. One reason for doing
 this is to abstract from the Content Repository datamodel and
 naming conventions, due to the different way File Storage labels
 its objects.</p>
-<p>The main objects of File Storage are "folders" and "files". A
-"folder" is analogous to a subdirectory in the Unix/Windows-world
-filesystem. Folder objects are stored as Content Repostory folders,
-thus folders are stored "as is" in the Content Repository.</p>
-<p>"Files", however, can cause some confusion when stored in the
-Content Repository. A "file" in File Storage consists of meta-data,
-and possibly multiple versions of the file's contents. The main
-meta-data of a "file" is its "title", which is stored in the
-Content Repository's "name" attribute of the cr_items table. The
-"title" of a file should be unique within a subdirectory, although
-a directory may contain a file and a folder with the same
-"title".</p>
+<p>The main objects of File Storage are "folders" and
+"files". A "folder" is analogous to a
+subdirectory in the Unix/Windows-world filesystem. Folder objects
+are stored as Content Repostory folders, thus folders are stored
+"as is" in the Content Repository.</p>
+<p>"Files", however, can cause some confusion when stored
+in the Content Repository. A "file" in File Storage
+consists of meta-data, and possibly multiple versions of the
+file&#39;s contents. The main meta-data of a "file" is
+its "title", which is stored in the Content
+Repository&#39;s "name" attribute of the cr_items table.
+The "title" of a file should be unique within a
+subdirectory, although a directory may contain a file and a folder
+with the same "title".</p>
 <p>Each version of a file is stored as a revision in cr_revisions
 table of Content Repository. The Content Repository also allows
 some meta-data about a version to be stored in this table, and
 indeed File Storage uses attributes of the cr_revisions table are
 used. However, this is where the confusion is created. The name of
-the filename uploaded from the client's computer, as a version of
-the file, is stored in the "title" attribute of cr_revisions. Note
-that "title" is also used as the (unique within a folder)
-identifier of the file stored in cr_items. Thus, wrappers to the
-Content Repository API makes sure that the naming convention is
-corect: cr_items.name attribute stores the title of a file and all
-its versions, while the cr_revisions.title attribute stores the
-filename of the version uploaded into the Content Repository.</p>
+the filename uploaded from the client&#39;s computer, as a version
+of the file, is stored in the "title" attribute of
+cr_revisions. Note that "title" is also used as the
+(unique within a folder) identifier of the file stored in cr_items.
+Thus, wrappers to the Content Repository API makes sure that the
+naming convention is corect: cr_items.name attribute stores the
+title of a file and all its versions, while the cr_revisions.title
+attribute stores the filename of the version uploaded into the
+Content Repository.</p>
 <p>Meta-data about a version of a file stored in Content Repository
 are the size of the version (stored in cr_revisions.content_length)
 and version notes (stored in cr_revisions.description).</p>
@@ -170,104 +174,104 @@ file_storage PL/SQL package</a>
 <h4>Tcl API</h4>
 <table width="100%"><tr><td bgcolor="#E4E4E4">
 <h3><a href="/api-doc/proc-view?proc=children%5fhave%5fpermission%5fp">children_have_permission_p</a></h3><pre>
-children_have_permission_p [ -user_id <i>user_id</i> ] <i>item_id</i><i>privilege</i>
+children_have_permission_p [ -user_id <em>user_id</em> ] <em>item_id</em><em>privilege</em>
 </pre><blockquote>This procedure, given a content item and a privilege,
 checks to see if there are any children of the item on which the
 user does not have that privilege.
 <dl>
-<dt><b>Switches:</b></dt><dd>
-<b>-user_id</b> (optional)<br>
-</dd><dt><b>Parameters:</b></dt><dd>
-<b>item_id</b><br><b>privilege</b><br>
+<dt><strong>Switches:</strong></dt><dd>
+<strong>-user_id</strong> (optional)<br>
+</dd><dt><strong>Parameters:</strong></dt><dd>
+<strong>item_id</strong><br><strong>privilege</strong><br>
 </dd>
 </dl>
 </blockquote>
 </td></tr></table>
 <table width="100%"><tr><td bgcolor="#E4E4E4">
 <h3><a href="/api-doc/proc-view?proc=fs%5fcontext%5fbar%5flist">fs_context_bar_list</a></h3><pre>
-fs_context_bar_list [ -final <i>final</i> ] <i>item_id</i>
+fs_context_bar_list [ -final <em>final</em> ] <em>item_id</em>
 </pre><blockquote>Constructs the list to be fed to ad_context_bar
 appropriate for item_id. If -final is specified, that string will
 be the last item in the context bar. Otherwise, the name
 corresponding to item_id will be used.
 <dl>
-<dt><b>Switches:</b></dt><dd>
-<b>-final</b> (optional)<br>
-</dd><dt><b>Parameters:</b></dt><dd>
-<b>item_id</b><br>
+<dt><strong>Switches:</strong></dt><dd>
+<strong>-final</strong> (optional)<br>
+</dd><dt><strong>Parameters:</strong></dt><dd>
+<strong>item_id</strong><br>
 </dd>
 </dl>
 </blockquote>
 </td></tr></table>
 <table width="100%"><tr><td bgcolor="#E4E4E4">
 <h3><a href="/api-doc/proc-view?proc=fs%5ffile%5fdownloader">fs_file_downloader</a></h3><pre>
-fs_file_downloader <i>conn</i><i>key</i>
+fs_file_downloader <em>conn</em><em>key</em>
 </pre><blockquote>Sends the requested file to the user. Note that the
 path has the original file name, so the browser will have a
 sensible name if you save the file. Version downloads are supported
-by looking for the form variable version_id. We don't actually
+by looking for the form variable version_id. We don&#39;t actually
 check that the version_id matches the path, we just serve it up.
 <dl>
-<dt><b>Parameters:</b></dt><dd>
-<b>conn</b><br><b>key</b><br>
+<dt><strong>Parameters:</strong></dt><dd>
+<strong>conn</strong><br><strong>key</strong><br>
 </dd>
 </dl>
 </blockquote>
 </td></tr></table>
 <table width="100%"><tr><td bgcolor="#E4E4E4">
 <h3><a href="/api-doc/proc-view?proc=fs%5ffile%5fp">fs_file_p</a></h3><pre>
-fs_file_p <i>file_id</i>
+fs_file_p <em>file_id</em>
 </pre><blockquote>Returns 1 if the file_id corresponds to a file in the
 file-storage system. Returns 0 otherwise.
 <dl>
-<dt><b>Parameters:</b></dt><dd>
-<b>file_id</b><br>
+<dt><strong>Parameters:</strong></dt><dd>
+<strong>file_id</strong><br>
 </dd>
 </dl>
 </blockquote>
 </td></tr></table>
 <table width="100%"><tr><td bgcolor="#E4E4E4">
 <h3><a href="/api-doc/proc-view?proc=fs%5ffolder%5fp">fs_folder_p</a></h3><pre>
-fs_folder_p <i>folder_id</i>
+fs_folder_p <em>folder_id</em>
 </pre><blockquote>Returns 1 if the folder_id corresponds to a folder in
 the file-storage system. Returns 0 otherwise.
 <dl>
-<dt><b>Parameters:</b></dt><dd>
-<b>folder_id</b><br>
+<dt><strong>Parameters:</strong></dt><dd>
+<strong>folder_id</strong><br>
 </dd>
 </dl>
 </blockquote>
 </td></tr></table>
 <table width="100%"><tr><td bgcolor="#E4E4E4">
 <h3><a href="/api-doc/proc-view?proc=fs%5fget%5ffolder%5fname">fs_get_folder_name</a></h3><pre>
-fs_get_folder_name <i>folder_id</i>
+fs_get_folder_name <em>folder_id</em>
 </pre><blockquote>Returns the name of a folder.
 <dl>
-<dt><b>Parameters:</b></dt><dd>
-<b>folder_id</b><br>
+<dt><strong>Parameters:</strong></dt><dd>
+<strong>folder_id</strong><br>
 </dd>
 </dl>
 </blockquote>
 </td></tr></table>
 <table width="100%"><tr><td bgcolor="#E4E4E4">
 <h3><a href="/api-doc/proc-view?proc=fs%5froot%5ffolder">fs_root_folder</a></h3><pre>
-fs_root_folder [ -package_id <i>package_id</i> ]
+fs_root_folder [ -package_id <em>package_id</em> ]
 </pre><blockquote>Returns the root folder for the file storage system.
 <dl>
-<dt><b>Switches:</b></dt><dd>
-<b>-package_id</b> (optional)<br>
+<dt><strong>Switches:</strong></dt><dd>
+<strong>-package_id</strong> (optional)<br>
 </dd>
 </dl>
 </blockquote>
 </td></tr></table>
 <table width="100%"><tr><td bgcolor="#E4E4E4">
 <h3><a href="/api-doc/proc-view?proc=fs%5fversion%5fp">fs_version_p</a></h3><pre>
-fs_version_p <i>version_id</i>
+fs_version_p <em>version_id</em>
 </pre><blockquote>Returns 1 if the version_id corresponds to a version in
 the file-storage system. Returns 0 otherwise.
 <dl>
-<dt><b>Parameters:</b></dt><dd>
-<b>version_id</b><br>
+<dt><strong>Parameters:</strong></dt><dd>
+<strong>version_id</strong><br>
 </dd>
 </dl>
 </blockquote>
@@ -279,46 +283,47 @@ between package instances and the corresponding root folders in the
 Content Repository.</p>
 <p>Inserting a row into the table fs_root_folders occurs the first
 time the package instance is visited. The reason is that there is
-no facility in APM to insert a row in the database everytime a
-package instance is created (technically, there is no "on insert"
-trigger imposed by APM on Content Repository, since they are
-separate packages even though they are both part of the core). The
-solution to this deficiency is a bit hack-ish, but seems to be the
-only solution available (unless APM allows trigger functions to be
-registered, to be caled at package instance creation). Whenever the
-package instance is first visited, it calls a PL/SQL function that
-calculated the "root folder" of the File Storage. If this function
-detects that there is no "root folder" yet for this instance (as
-would be the case when the instance is first visited), it inserts
-the package id and a unique folder_id into the fs_root_folder table
-to serve as the root folder identifier. It also inserts meta-data
-information about this folder in cr_items table. Finally, it
-returns the newly created folder identifier as the root folder for
-this package instance. Subsequent visits to the package instance
-will detect the root folder, and will then return the root folder
-identifier.</p>
-<p>There is an "on delete cascade" constraint imposed on the
-package_id attribute of fs_root_folders. The reason for this is
+no facility in APM to insert a row in the database every time a
+package instance is created (technically, there is no "on
+insert" trigger imposed by APM on Content Repository, since
+they are separate packages even though they are both part of the
+core). The solution to this deficiency is a bit hack-ish, but seems
+to be the only solution available (unless APM allows trigger
+functions to be registered, to be caled at package instance
+creation). Whenever the package instance is first visited, it calls
+a PL/SQL function that calculated the "root folder" of
+the File Storage. If this function detects that there is no
+"root folder" yet for this instance (as would be the case
+when the instance is first visited), it inserts the package id and
+a unique folder_id into the fs_root_folder table to serve as the
+root folder identifier. It also inserts meta-data information about
+this folder in cr_items table. Finally, it returns the newly
+created folder identifier as the root folder for this package
+instance. Subsequent visits to the package instance will detect the
+root folder, and will then return the root folder identifier.</p>
+<p>There is an "on delete cascade" constraint imposed on
+the package_id attribute of fs_root_folders. The reason for this is
 that whenever the package instance is deleted by the site
 administrator, it automatically deletes the mapping between APM and
 the Content Repository (i.e, the package identifier and the root
 folder identified), and presumably the particular instance of File
 Storage. Unfortunately this has an undesirable effect. There is no
-corresponding "on delete cascade" on the Content Repository objects
-so that deleting the root folder will cause deletion of everything
-under the root folder. Left on its own, the "on delete cascade" on
-the package identifier attribute of fs_root_folders will cause all
-objects belonging to the instance of File Storage deleted to be
-orphaned in the database, since the root folder is the crucial link
-from which all content is referenced!</p>
-<p>The solution is (hopefully) more elegant: an "before on delete"
-trigger that first cleans up all contents under the root folder
-identifier before the root folder identifier is deleted by APM.
-This trigger walks through all the contents of the instance of File
-Storage, and starts deleting from the "leaves" or end nodes of the
-file tree up to the root folder. Later improvements in Content
-Repository will allow archiving of the contents instaed of actually
-deleting them from the database.</p>
+corresponding "on delete cascade" on the Content
+Repository objects so that deleting the root folder will cause
+deletion of everything under the root folder. Left on its own, the
+"on delete cascade" on the package identifier attribute
+of fs_root_folders will cause all objects belonging to the instance
+of File Storage deleted to be orphaned in the database, since the
+root folder is the crucial link from which all content is
+referenced!</p>
+<p>The solution is (hopefully) more elegant: an "before on
+delete" trigger that first cleans up all contents under the
+root folder identifier before the root folder identifier is deleted
+by APM. This trigger walks through all the contents of the instance
+of File Storage, and starts deleting from the "leaves" or
+end nodes of the file tree up to the root folder. Later
+improvements in Content Repository will allow archiving of the
+contents instaed of actually deleting them from the database.</p>
 <h3>VIII. User Interface</h3>
 <p>The user interface attempts to replicate the file system
 metaphors familiar to most computer users, with folders containing
@@ -333,15 +338,15 @@ appropriate.</p>
 Storage. The first parameter <em>MaximumFileSize</em> is the
 maximum size of uploaded files, which should be self-explanatory.
 The other parameter is a flag that indicates to the package whether
-files are stored in the database or in the webserver's filesystem.
-This second parameter <em>StoreFilesInDatabaseP</em> uses the new
-capability in Content Repository to use the Content Repository as a
-mere catalog to store file information while the actual file
-contents are stored in the webserver's filesystem. Note that when
-files are stored in the filesystem, backups of the database will
-only store the catalog, but not the contents. Thus, it is important
-for the site administrator to store the entire directory containing
-the Content Repository files (in particular,
+files are stored in the database or in the webserver&#39;s
+filesystem. This second parameter <em>StoreFilesInDatabaseP</em>
+uses the new capability in Content Repository to use the Content
+Repository as a mere catalog to store file information while the
+actual file contents are stored in the webserver&#39;s filesystem.
+Note that when files are stored in the filesystem, backups of the
+database will only store the catalog, but not the contents. Thus,
+it is important for the site administrator to store the entire
+directory containing the Content Repository files (in particular,
 <em>pageroot</em>/content-repository-content-files) when storing
 files in the fiesystem.</p>
 <p>When a file is stored in the Content Repository, it first
@@ -375,11 +380,11 @@ this will change to something more tasteful.</li><li>Currently you have to resta
 that actually serves the files after you create a new site-node.
 This is similar to the previous issue and will probably be dealt
 with similarly.</li><li>We automatically add MIME types to <code>cr_mime_types</code>
-if they aren't there already. However, we don't currently have a
-way of entering the description at the same time, so we have to
-display "application/msword" instead of "MS Word Document", for
-example. We could use a method of determining the canonical long
-form of a MIME type.</li>
+if they aren&#39;t there already. However, we don&#39;t currently
+have a way of entering the description at the same time, so we have
+to display "application/msword" instead of "MS Word
+Document", for example. We could use a method of determining
+the canonical long form of a MIME type.</li>
 </ul>
 <h3>XI. Authors</h3>
 <ul><li>System creator:<br>

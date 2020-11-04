@@ -74,24 +74,24 @@
   <msg key="link">ссылка</msg>
   <msg key="lt_Add_a_link_to_a_web_p">Добавить ссылку на веб страницу в эту папку</msg>
   <msg key="lt_administer_permission">права администратора</msg>
-  <msg key="lt_All_Versions_of_title">Все Версии&#34;%title%&#34;</msg>
-  <msg key="lt_Are_you_sure_that_you">Вы действительно хотите удалить эту версию&#34;%version_name%&#34; &#34;%title%&#34;? Данное действие не может быть отменено.</msg>
+  <msg key="lt_All_Versions_of_title">Все Версии&quot;%title%&quot;</msg>
+  <msg key="lt_Are_you_sure_that_you">Вы действительно хотите удалить эту версию&quot;%version_name%&quot; &quot;%title%&quot;? Данное действие не может быть отменено.</msg>
   <msg key="lt_bad_folder_id_folder_">отсутствует идентификатор папки</msg>
   <msg key="lt_Comments_on_this_file">Комментарии к данному файлу:</msg>
   <msg key="lt_contentscontent_size_">%contents.content_size_pretty% байтов</msg>
   <msg key="lt_Copy_Checked_Items_to">Скопировать выбранные позиции в другую папку</msg>
-  <msg key="lt_delete_file">Вы действительно хотите удалить файл&#34;%title%&#34; и все его версии? Данное действие не может быть отменено.</msg>
-  <msg key="lt_delete_folder">Вы действительно хотите удалить папку&#34;%folder_name%&#34; и все ее содержимое? Данное действие не может быть отменено.</msg>
+  <msg key="lt_delete_file">Вы действительно хотите удалить файл&quot;%title%&quot; и все его версии? Данное действие не может быть отменено.</msg>
+  <msg key="lt_delete_folder">Вы действительно хотите удалить папку&quot;%folder_name%&quot; и все ее содержимое? Данное действие не может быть отменено.</msg>
   <msg key="lt_Delete_this_file_incl">Удалить этот файл (включая все версии)</msg>
   <msg key="lt_Do_you_want_to_delete">Вы действительно хотите удалить перечисленные пункты?</msg>
   <msg key="lt_Download_an_archive_o">Скачать архив содержимого данной папки</msg>
-  <msg key="lt_Either_there_is_alrea">Папка  с именем &#34;%folder_name%&#34; уже существует либо вы нажали на кнопку более одного раза.Вы можете воспользоваться кнопкой Назад, чтобы вернуться и выбрать новое имя, или &lt;a href=&#34;%directory_url%&#34;&gt;вернуться к списку директорий&lt;/a&gt; чтобы проверить, есть ли в нем ваша папка.</msg>
+  <msg key="lt_Either_there_is_alrea">Папка  с именем &quot;%folder_name%&quot; уже существует либо вы нажали на кнопку более одного раза.Вы можете воспользоваться кнопкой Назад, чтобы вернуться и выбрать новое имя, или &lt;a href=&quot;%directory_url%&quot;&gt;вернуться к списку директорий&lt;/a&gt; чтобы проверить, есть ли в нем ваша папка.</msg>
   <msg key="lt_File-Storage_folder_f">Папка хранения файлов: %folder_name%</msg>
   <msg key="lt_File_Storage_Notifica">Уведомление из Хранилища файлов </msg>
   <msg key="lt_Folder_folder_name_is">Папка %folder_name% пуста.</msg>
   <msg key="lt_It_appears_that_there">Похоже, что файл с таким именем уже существует в данной папке (также вероятно, что вы нажали на кнопку предоставления более одного раза.)</msg>
   <msg key="lt_Leave_blank_for_linked_documents">Оставьте поле заголовка пустым при загрузке нескольких взаимосвязанных документов.</msg>
-  <msg key="lt_Live_version_of_title">Актуальная версия &#34;%title%&#34;.</msg>
+  <msg key="lt_Live_version_of_title">Актуальная версия &quot;%title%&quot;.</msg>
   <msg key="lt_Modify_permissions_on">Изменить права доступа к данному файлу</msg>
   <msg key="lt_Modify_permissions_on_1">Изменить права доступа к этой папке</msg>
   <msg key="lt_Move_Checked_Items_to">Перенести выбранные позиции в другую папку</msg>
@@ -104,8 +104,8 @@
   <msg key="lt_not_allowed_count_ite">%not_allowed_count% позиции не могут быть перемещены</msg>
   <msg key="lt_Notification_for_File">Уведомление для: Хранилище файлов: %action_type%</msg>
   <msg key="lt_Please_enter_the_new_">Пожалуйста, введите новое имя данного файла:</msg>
-  <msg key="lt_Select_the_folder_tha">Выберите папку, в которую вы желаете скопировать&#34;%file_name%&#34;</msg>
-  <msg key="lt_Select_the_folder_tha_1">Выберите папку, в которую вы желаете переместить&#34;%file_name%&#34;</msg>
+  <msg key="lt_Select_the_folder_tha">Выберите папку, в которую вы желаете скопировать&quot;%file_name%&quot;</msg>
+  <msg key="lt_Select_the_folder_tha_1">Выберите папку, в которую вы желаете переместить&quot;%file_name%&quot;</msg>
   <msg key="lt_Show_files_modified_i">Показать файлы, измененные за последние</msg>
   <msg key="lt_show_only_live_versio">показать только актуальную версию</msg>
   <msg key="lt_The_folder_link_you_s">Выбранная вами папка %folder_link% уже содержит файл с тем же именем.</msg>
@@ -120,7 +120,7 @@
   <msg key="lt_Upload_a_compressed_f">Выгрузить сжатую папку, которая будет разархивирована как есть.</msg>
   <msg key="lt_Upload_a_file_in_this">Загрузить файл в эту папку</msg>
   <msg key="lt_Upload_compressed_fol">Загрузить сжатую папку</msg>
-  <msg key="lt_Use_the_Browse_button">Выберите файл при помощи кнопки &#34;Browse...&#34; (&#34;Найти...&#34;) и нажмите &#34;Open&#34; (&#34;Открыть&#34;).</msg>
+  <msg key="lt_Use_the_Browse_button">Выберите файл при помощи кнопки &quot;Browse...&quot; (&quot;Найти...&quot;) и нажмите &quot;Open&quot; (&quot;Открыть&quot;).</msg>
   <msg key="lt_version_not_valid">Заданная версия недостоверна.</msg>
   <msg key="lt_Version_Notes_descrip">Примечания к версии: %description%</msg>
   <msg key="lt_View_folder_contents_">Просмотреть содержание папки: %url_version%</msg>
@@ -131,8 +131,8 @@
   <msg key="lt_You_probably_clicked_">Вероятно, вы нажали на кнопку Добавить более одного раза. Проверьте, корректно ли загрузился файл в выбранную вами папку %folder_link% или воспользуйтесь кнопкой Назад, чтобы вернуться и заново ввести версию файла.</msg>
   <msg key="lt_Your_file_is_larger_t">Размер вашего файла превышает максимально допустимый для данной системы (%number_of_bytes% байтов)</msg>
   <msg key="lt_Your_file_is_larger_t_1">Размер вашего файла превышает максимально допустимый для данной системы (%max_number_of_bytes% байтов)</msg>
-  <msg key="lt_Your_search_on_query_">По вашему запросу&#34;%query%&#34; ничего не найдено.</msg>
-  <msg key="lt_Your_search_on_query__1">По вашему запросу&#34;%query%&#34; найдены следующие файлы:</msg>
+  <msg key="lt_Your_search_on_query_">По вашему запросу&quot;%query%&quot; ничего не найдено.</msg>
+  <msg key="lt_Your_search_on_query__1">По вашему запросу&quot;%query%&quot; найдены следующие файлы:</msg>
   <msg key="Modified">Изменено</msg>
   <msg key="Move">Переместить</msg>
   <msg key="Move_File">Переместить файл</msg>

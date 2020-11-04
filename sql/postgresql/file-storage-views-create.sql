@@ -7,7 +7,7 @@
 --
 
 drop view if exists fs_urls_full;
-create view fs_urls_full
+create or replace view fs_urls_full
 as
     select cr_extlinks.extlink_id as url_id,
            cr_extlinks.url,

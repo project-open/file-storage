@@ -52,9 +52,7 @@ ad_proc -private fs::install::before_uninstantiate {
     {-package_id:required}
 } {
 } {
-    catch {
-        fs::delete_folder -folder_id [fs::get_root_folder -package_id $package_id] -no_notifications
-    } err_msg
+    fs::delete_folder -folder_id [fs::get_root_folder -package_id $package_id] -no_notifications
 }
 
 ad_proc -private fs::install::register_implementation {
@@ -133,9 +131,9 @@ ad_proc -private fs::install::upgrade {
 	-spec {
 	    4.6.2 5.1.1 {
 		fs::install::package_install
-		# delete the tcl file for the /view template created
+		# delete the Tcl file for the /view template created
 		# by content::init so it can be recreated
-		file delete [file join [acs_root_dir] templates "file-storage-default.tcl"]
+		file delete -- [file join [acs_root_dir] templates "file-storage-default.tcl"]
 	    }
 	    5.1.0a10 5.1.0a11 {
 		set spec {
